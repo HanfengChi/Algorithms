@@ -1,2 +1,2 @@
 # Algorithms
-Just for exercise
+Just for personal exercise.
