@@ -1,1 +1,2 @@
 # Algorithms
+Just for exercise
