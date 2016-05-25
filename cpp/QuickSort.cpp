@@ -1,5 +1,7 @@
 /**
- * 
+ * Source:	CLRS
+ * Author: 	HanfengChi
+ * Date:	2016-05-25
  */
 #include <iostream>
 #include <vector>
