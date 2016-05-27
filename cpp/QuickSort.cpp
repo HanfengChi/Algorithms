@@ -10,6 +10,27 @@
 using namespace std;
 
 template<typename T>
+void show(std::vector<T> a)
+{
+	for(T value:a)
+	{
+		cout<<value<<"\t";
+	}
+	cout<<endl;
+}
+
+template<typename T>
+bool Sorted(std::vector<T> a)
+{
+	for(int i = 1; i < a.size(); i++)
+	{
+		if(a[i]<a[i-1])
+			return false;
+	}
+	return true;
+}
+
+template<typename T>
 void swap(std::vector<T>& a, int i, int j)
 {
 	T temp = a[i];
@@ -47,7 +68,7 @@ void QuickSort(std::vector<T>& a, int lo, int hi)
 }
 
 template<typename T>
-int RandomPatition(std::vector<T>& a, int lo, int hi)
+int Random_Patition(std::vector<T>& a, int lo, int hi)
 {
 	random_device rd;
 
@@ -58,13 +79,13 @@ int RandomPatition(std::vector<T>& a, int lo, int hi)
 }
 
 template<typename T>
-void RandomQuickSort(std::vector<T>& a, int lo, int hi)
+void Random_QuickSort(std::vector<T>& a, int lo, int hi)
 {
 	if (lo < hi)
 	{
-		int q = RandomPatition(a, lo, hi);
-		RandomQuickSort(a, lo, q - 1);
-		RandomQuickSort(a, q + 1, hi);
+		int q = Random_Patition(a, lo, hi);
+		Random_QuickSort(a, lo, q - 1);
+		Random_QuickSort(a, q + 1, hi);
 	}
 }
 
@@ -73,28 +94,27 @@ int main()
 	cout<<"Success"<<endl;
 
 	int n = 10;
-	std::vector<int> v;
-	
+	std::vector<int> v;	
 	for(int i = 0; i < n; i++)
 	{
 		v.push_back(i);
 	}
 	random_shuffle(v.begin(),v.end());
 
-	for(int value:v)
-	{
-		cout<<value<<"\t";
-	}
-	cout<<endl;
+
+	cout<<"Before Sort():"<<endl;
+	show(v);
+
 
 	//QuickSort(v,0,n-1);
-	RandomQuickSort(v, 0, n - 1);
+	Random_QuickSort(v, 0, n - 1);
+	
 
-	for(int value:v)
-	{
-		cout<<value<<"\t";
-	}
-	cout<<endl;
+	cout<<"After Sort():"<<endl;
+	show(v);
+	cout<<"Sorted:"<< bool(Sorted(v))<<endl;
+	
+
 	return 0;	
 }
 
