@@ -1,7 +1,7 @@
 /**
  * Source:	CLRS
  * Author: 	HanfengChi
- * Date:	2016-05-25
+ * Date:	2016-05-27
  */
 #include <iostream>
 #include <vector>
